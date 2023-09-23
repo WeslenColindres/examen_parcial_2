@@ -7,3 +7,5 @@ class Procurador(models.Model):
     apellido = models.CharField(max_length=20)
     numero_colegiado = models.DecimalField(max_digits=5, decimal_places=0)
 
+    def __str__(self):
+        return self.nombre

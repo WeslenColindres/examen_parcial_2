@@ -4,7 +4,8 @@ from . import form
 
 class ProcuradorAdmin(admin.ModelAdmin):
     form = form.ProcuradorAdminForm
-    search_fields = ('nombre')
+    search_fields = ['nombre']
+    
     
     
 admin.site.register(Procurador, ProcuradorAdmin)
