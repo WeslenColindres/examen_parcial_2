@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content%}
+    <h1>¿Estás seguro de que deseas eliminar este procurador?</h1>
+    <p><strong>Nombre:</strong> {{ procurador.nombre }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, Eliminar</button>
+    </form>
+    <a href="{% url 'procurador_detail' procurador.pk %}">Cancelar</a>
+{% endblock %}

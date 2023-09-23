@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content%}
+    <h1>Detalle del procurador</h1>
+    <p><strong>Nombre:</strong> {{ procurador.nombre }}</p>
+    {% if perms.procuradorexit.change_procurador%}
+    <a href="{% url 'procurador_update' procurador.pk %}">Editar procuarador</a>
+   {%endif%}
+    {% if perms.procuradorexit.delete_procurador%}
+    <a href="{% url 'procurador_delete' procurador.pk %}">Eliminar procurador</a>
+  {%endif%}
+{% endblock %}

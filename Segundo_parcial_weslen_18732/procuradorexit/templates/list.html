@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title%}
+<title>Lista de Paises</title>
+{% endblock %} {% block content%}
+
+<form method="get" action="{% url 'procurador_list' %}">
+  <input type="text" name="pais" value="{{ query }}" placeholder="Buscar país...">
+  <input type="submit" value="Buscar">
+</form>
+
+<h1>Lista de procuradores</h1>
+<ul>
+  {% for procurador in procuradores %}
+
+  <li>
+    {% if perms.procuradorexit.view_procurador %}
+    <a href="{% url 'procurador_detail' procurador.pk %}">{{ procurador.nombre }}</a>
+    {% else %}
+    <a>{{ procurador.nombre }}</a>
+    {% endif %}
+  </li>
+  
+  {% endfor %}
+</ul>
+{% if perms.procuradorexit.add_procurador %}
+<a href="{% url 'procurador_create' %}">Registrar procurador </a>
+{%endif%}
+ {% endblock %}
